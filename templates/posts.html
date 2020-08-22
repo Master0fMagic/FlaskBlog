@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+Все статьи
+{% endblock  %}
+{% block body %}
+<div class ="container">
+    <h1 style="text-align: center;">Статьи</h1>
+    
+    {% if articles|length > 0 %}
+    
+        {% for element in articles %}
+        <div class ="alert alert-info">
+            <h2>
+                {{element.title}}
+            </h2>
+            <p>{{element.intro}}</p>
+            <p><b>{{element.date.strftime("%H:%M  %d.%m.%Y")}}</b></p>
+            <div class="container">
+                <a class="btn btn-info" href="posts/{{ element.id }}">Подробнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+    <h4>У нас еще нет статей на сайте. Вы можете добавить статью через кнопку вверху</h4>
+    {% endif %}
+</div>
+{% endblock  %}

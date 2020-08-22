@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+Статья "{{article.title}}"
+{% endblock  %}
+{% block body %}
+<div class ="container">
+    <h1>
+        {{article.title}}
+    </h1>
+    <h2>
+        {{article.intro}}
+    </h2>
+    <p>
+        {{article.text }}
+    </p>
+    <p>
+        {{ article.date.strftime("%H:%M  %d.%m.%Y") }}
+    </p>
+    <div class="container">
+        <a class="btn btn-danger" href="/posts/{{article.id}}/delete">Удалить статью</a>
+        <a class="btn btn-success" href="/posts/{{article.id}}/update">Редактировать статью</a><br><br>
+        <a class="btn btn-info" href="/posts">Вернуться к статьям</a>
+    </div>
+</div>
+{% endblock  %}
